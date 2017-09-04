@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(phily-train:greet) -->
+    <phily-train:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(phily-train:greet) -->

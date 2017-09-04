@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/phily-train" prefix="phily-train">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="PhilyTrain" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/phily-train/abstractPhily-trainConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="PhilyTrain: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/phily-train-connector-small.png" localId="config" image="icons/theme.classic/phily-train-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/phily-train/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Phily-train configuration properties.">
+      <group id="phily-trainGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractphily-trainconnectorgeneric" description="Interact with Phily-train." icon="icons/theme.classic/phily-train-connector-small.png" localId="abstractPhily-trainConnectorGeneric" image="icons/theme.classic/phily-train-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractPhily-trainConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/phily-train/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.phily-train" caption="PhilyTrain" description="" icon="icons/theme.classic/phily-train-connector-small.png" localId="phily-train-connector" image="icons/theme.classic/phily-train-connector-large.png" extends="http://www.mulesoft.org/schema/mule/phily-train/abstractPhily-trainConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="phily-trainConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Phily-train operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/phily-train/abstractPhily-trainConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/phily-train/findby-train-no" modeLabel="Findby train no"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Findby Train No" icon="icons/theme.classic/phily-train-connector-small.png" localId="findby-train-no" image="icons/theme.classic/phily-train-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/phily-train/abstractPhily-trainConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="trainNo" caption="Train No" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
